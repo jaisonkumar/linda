@@ -364,8 +364,8 @@ with tab1:
 
 with tab2:
     st.subheader("Explore Insurance Datasets")
-    dataset_choice = st.selectbox("Select Dataset", ["Life/Health", "Motor", " Health"])
-    df = df_life if dataset_choice == "Life/Health" else df_motor if dataset_choice == "Motor" else df_synth
+    dataset_choice = st.selectbox("Select Dataset", ["Life", "Motor", " Health"])
+    df = df_life if dataset_choice == "Life" else df_motor if dataset_choice == "Motor" else df_synth
 
     st.dataframe(df.head())
 
@@ -451,7 +451,7 @@ with tab2:
                 input_df = prepare_input(features_dict, df, target_col="Recommended_Product" if dataset_choice != "Motor" else "RecommendedProduct")
 
                 recomm = None
-                if dataset_choice == "Life/Health":
+                if dataset_choice == "Life":
                     recomm = train_recommender(df_life, target_col="Recommended_Product")
                 elif dataset_choice == "Motor":
                     recomm = train_recommender(df_motor, target_col="RecommendedProduct")
@@ -558,10 +558,10 @@ def show_model_metrics(recomm):
     st.bar_chart(feat_df.set_index("feature"))
 
 # ---------------------------
-# 🏥 Tab 2: Life/Health Recommender
+# 🏥 Tab 2: Life Recommender
 # ---------------------------
 with tab3:
-    st.header("🏥 Life/Health Insurance Product Recommendation")
+    st.header("🏥 Life Insurance Product Recommendation")
     st.dataframe(df_life.head())
 
     recomm = train_recommender(df_life, target_col="Recommended_Product")
@@ -670,4 +670,5 @@ with tab5:
         st.error(f"Could not predict: {e}")
 
     # show_model_metrics(recomm_synth)
+
 
