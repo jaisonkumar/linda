@@ -275,7 +275,7 @@ df_synth = generate_synthetic_health()
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "Home",
     "📊 Data Explorer", 
-    "🏥 Life/Health Recommendation", 
+    "🏥 Life Recommendation", 
     "🚗 Motor Recommendation",
     "🧪  Health Recommendation"
 ])
@@ -670,3 +670,4 @@ with tab5:
         st.error(f"Could not predict: {e}")
 
     # show_model_metrics(recomm_synth)
+
