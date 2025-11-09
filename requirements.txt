@@ -11,3 +11,4 @@ matplotlib
 google-generativeai
 SpeechRecognition
 joblib
+gTTS==2.3.2
